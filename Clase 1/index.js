@@ -56,7 +56,6 @@ if(!nombre){ //Si nombre es igual a null, undefined, '' o false
 for(let i = 1; i <= 10; i++){
     console.log('El contador es: ' + i)
 }
-
 //Bucle while
 let j = 0
 while(j <= 10){
