@@ -49,7 +49,7 @@ let obj = {
 }
 // console.log(obj['c'])
 for(let clave in obj ){
-    console.log(obj[clave])
+    console.log(clave + ':' +obj[clave])
 }
 
 
