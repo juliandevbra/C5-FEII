@@ -71,7 +71,22 @@ navTitle[0].innerText = 'Inicio'
 main.innerHTML += '<h1>Yo me sumé a lo último</h1>'
 // main.innerHTML = main.innerHTML + '<h1>Yo me sumé a lo último</h1>'
 
+console.log(nav.style)
 nav.style.display = 'flex'
 nav.style.justifyContent = 'space-around'
-navTitle[0].style.color = 'red'
-navTitle[0].style.backgroundColor = 'grey'
+// navTitle[0].style.color = 'red'
+// navTitle[0].style.backgroundColor = 'grey'
+
+for(let i = 0; i < navTitle.length; i++){
+    navTitle[i].style.color = 'green'
+}
+
+arrArticles.forEach((elemento) => {
+    // console.log(elemento)
+    elemento.style.color = 'red'
+})
+
+for(let elemento of arrLi){
+    // console.log(elemento)
+    elemento.style.color = 'red'
+}
