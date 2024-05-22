@@ -1,0 +1,47 @@
+body{
+    margin: 0;
+    font-family:Arial, Helvetica, sans-serif;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    background-color: coral;
+    justify-content: space-between;
+}
+nav{
+    width: 400px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   
+}
+nav a{
+    text-decoration: none;
+    color: white;
+}
+#theme{
+    margin: 10px;
+    color: white;
+    background-color: tomato;
+    border: 1px lightcoral solid;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+main{
+    height: 100vh;
+}
+img{
+    width: 300px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.hidden-footer{
+    display: none;
+}
+.shown-footer{
+    display: flex;
+    justify-content: space-around;
+    background-color: coral;
+}
