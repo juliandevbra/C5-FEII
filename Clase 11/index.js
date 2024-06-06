@@ -56,16 +56,16 @@ const obtenerPaises = (exito) => {
   });
 };
 
-// obtenerPaises(true)
-//   .then((respuesta) => {
-//     console.log(respuesta);
-//     const ul = document.createElement("ul");
-// respuesta.forEach((pais) => {
-//   ul.innerHTML += `<li>País:${pais.nombre} - Capital: ${pais.capital}</li>`;
-// });
-//     main.appendChild(ul);
-//   })
-//   .catch((err) => console.log(err));
+obtenerPaises(true)
+  .then((respuesta) => {
+    console.log(respuesta);
+    const ul = document.createElement("ul");
+    respuesta.forEach((pais) => {
+      ul.innerHTML += `<li>País:${pais.nombre} - Capital: ${pais.capital}</li>`;
+    });
+    main.appendChild(ul);
+  })
+  .catch((err) => console.log(err));
 
 //Functión de obtenerPaises con async/await
 async function fetchPaises() {
