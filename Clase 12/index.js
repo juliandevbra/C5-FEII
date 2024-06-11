@@ -51,33 +51,54 @@ window.addEventListener("load", () => {
   //   obtenerCartoon();
 
   //Otro ejemplo con otra API y le sumamos Sweetalert
-  const obtenerPersonajes = async () => {
-    try {
-      const res = await fetch(url);
-      // const data = await res.json();
-      // console.log(data);
-      const { info, results } = await res.json();
-      console.log(results);
-      if (results) {
-        const loader = document.querySelector(".loader");
-        loader.remove();
-        results.forEach((character) => {
-          listSection.innerHTML += `
-                  <div class='card'>
-                      <h3>${character.name}</h3>
-                      <img src=${character.image} alt=${character.name} width='200'>
-                  </div>
-              `;
-        });
-      }
-    } catch (err) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: err,
-        footer: `No se pudieron obtener los personajes`,
-      });
-    }
+  // const obtenerPersonajes = async () => {
+  //   try {
+  //     const res = await fetch(url);
+  //     // const data = await res.json();
+  //     // console.log(data);
+  //     const { info, results } = await res.json();
+  //     console.log(results);
+  //     if (results) {
+  //       const loader = document.querySelector(".loader");
+  //       loader.remove();
+  //       results.forEach((character) => {
+  //         listSection.innerHTML += `
+  //                 <div class='card'>
+  //                     <h3>${character.name}</h3>
+  //                     <img src=${character.image} alt=${character.name} width='200'>
+  //                 </div>
+  //             `;
+  //       });
+  //     }
+  //   } catch (err) {
+  //     Swal.fire({
+  //       icon: "error",
+  //       title: "Oops...",
+  //       text: err,
+  //       footer: `No se pudieron obtener los personajes`,
+  //     });
+  //   }
+  // };
+  // obtenerPersonajes();
+
+  const endpoint = "https://jsonplaceholder.typicode.com/posts";
+  const data = {
+    title: "Este es mi titulo",
+    body: "Tiene todo este contenido",
+    userId: 11,
   };
-  obtenerPersonajes();
+  const config = {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-type": "application/json",
+    },
+  };
+  fetch(endpoint, config)
+    .then((response) => {
+      console.log(response);
+      return response.json();
+    })
+    .then((json) => console.log(json))
+    .catch((err) => console.log(err));
 });
