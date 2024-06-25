@@ -12,9 +12,13 @@ window.addEventListener("load", function () {
   const formCrearTarea = document.forms[0];
   const urlUser = "https://todo-api.digitalhouse.com/v1/users/getMe";
   const urlTask = "https://todo-api.digitalhouse.com/v1/tasks";
+  renderizarSkeletons(2, ".tareas-pendientes");
+  renderizarSkeletons(2, ".tareas-terminadas");
 
   obtenerNombreUsuario();
-  consultarTareas();
+  setTimeout(() => {
+    consultarTareas();
+  }, 2000);
   /* -------------------------------------------------------------------------- */
   /*                          FUNCIÓN 1 - Cerrar sesión                         */
   /* -------------------------------------------------------------------------- */
@@ -74,7 +78,9 @@ window.addEventListener("load", function () {
   /*                    FUNCIÓN 4 - Crear nueva tarea [POST]                    */
   /* -------------------------------------------------------------------------- */
 
-  formCrearTarea.addEventListener("submit", function (event) {});
+  formCrearTarea.addEventListener("submit", function (event) {
+    event.preventDefault();
+  });
 
   /* -------------------------------------------------------------------------- */
   /*                  FUNCIÓN 5 - Renderizar tareas en pantalla                 */
@@ -82,6 +88,9 @@ window.addEventListener("load", function () {
   function renderizarTareas(listado) {
     const tareasPendientes = document.querySelector(".tareas-pendientes");
     const tareasTerminadas = document.querySelector(".tareas-terminadas");
+
+    tareasPendientes.innerHTML = "";
+    tareasTerminadas.innerHTML = "";
 
     const nroFinalizadas = document.querySelector("#cantidad-finalizadas");
     let contador = 0;

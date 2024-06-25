@@ -8,8 +8,18 @@ window.addEventListener("load", function () {
   /* -------------------------------------------------------------------------- */
   /*            FUNCIÓN 1: Escuchamos el submit y preparamos el envío           */
   /* -------------------------------------------------------------------------- */
-  form.addEventListener("submit", function (event) {
+
+  form.addEventListener("onsubmit", function (event) {
     event.preventDefault();
+    mostrarSpinner();
+    if (!validarEmail(email.value)) {
+      Swal.fire({
+        icon: "error",
+        title: "Email no válido",
+      });
+      return;
+    }
+
     const data = {
       email: email.value,
       password: pass.value,
@@ -38,6 +48,7 @@ window.addEventListener("load", function () {
         if (data.jwt) {
           localStorage.setItem("jwt", data.jwt);
           setTimeout(() => {
+            ocultarSpinner();
             location.replace("./mis-tareas.html");
           }, 2000);
         }
